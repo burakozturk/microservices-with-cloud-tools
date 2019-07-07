@@ -13,6 +13,17 @@
 - [Docker Compose](https://docs.docker.com/compose/)
 - [Swagger2](https://github.com/springfox/springfox/springfox-swagger2), [Swagger-UI](https://github.com/springfox/springfox/springfox-ui) 
 
+### Purpose
+
+The host networking driver only works on Linux hosts, and is not supported on Docker Desktop for Windows.
+To achieve inter-service communication between host network and docker network we need to setup a hybrid development environment for microservices with cloud tools. 
+
+### Scenario
+- Run some services with docker-compose
+- Run config-server and run/debug one or more services on your IDE.
+- All services automatically join consul catalog and dynamically configured on traefik.
+- Handles inter-service communication by opeinfeign & service discovery
+ 
 
 ### Usage
 
@@ -20,17 +31,31 @@ To use this environment you need access privileges;
 - docker network to host network by ip
 - host network to docker network by ip
 
-Example, access to host from docker network (Linux/RedHat)
+##### Windows:
+By default, host can not access containers ip address on Windows platform.
+ 
+Alter route table with:
+```console
+route /P add  172.24.0.0 MASK 255.255.0.0 10.0.75.2
+```
+##### Linux:
+By default, containers can not access host ip address on Linux platform.
+ 
+Access to host from docker network (Linux/RedHat)
 
 ```console
 firewall-cmd --permanent --zone=public --add-rich-rule='rule family=ipv4 source address=172.24.0.0/16 accept' 
 firewall-cmd --reload
 ```
-Or, you can simply add [route](http://man7.org/linux/man-pages/man8/route.8.html) definitions.
+Or, you can add [route](http://man7.org/linux/man-pages/man8/route.8.html) definitions.
 
 #### Build
 ```console
-mvn clean install -P docker 
+mvn clean install 
+```
+
+#### Dockerize
+```console
 mvn jib:dockerBuild
 ```
 
@@ -40,8 +65,6 @@ cd ./docker-compose
 docker-compose up 
 docker-compose down --remove-orphans
 ```
-
-You can also fire up one of the services from your ide or cli. Service will automatically join consul catalog and dynamically configured for traefik.
 
 #### Swagger
 
