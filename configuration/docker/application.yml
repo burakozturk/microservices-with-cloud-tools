@@ -1,0 +1,15 @@
+---
+spring:
+  cloud:
+    consul:
+      host: service-discovery
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}
+        prefer-ip-address: true
+        fail-fast: true
+        tags: traefik.enable=true, traefik.tags=api, traefik.tags=external,traefik.frontend.rule=PathPrefix:/${spring.application.name};PathPrefixStrip:/${spring.application.name}
+      retry:
+        initial-interval: 3000
+        max-interval: 5000
+        max-attempts: 100

@@ -1,0 +1,13 @@
+---
+server:
+  port: 8000
+
+spring:
+  profiles:
+    active: developer
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/burakozturk/microservices-with-cloud-tools.git
+          search-paths: configuration/developer

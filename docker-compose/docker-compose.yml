@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+
+  config-server:
+    image: config-server
+    networks:
+      - dev-network
+
+  service-discovery:
+    image: consul:1.5.2
+    ports:
+      - 8500:8500
+    networks:
+      - dev-network
+
+  gateway:
+    image: traefik:1.7.12
+    ports:
+      - 80:80
+      - 8080:8080
+    volumes:
+      - ./traefik/traefik.toml:/etc/traefik/traefik.toml
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - dev-network
+
+  city-service:
+    image: city-service
+    networks:
+      - dev-network
+
+  country-service:
+    image: country-service
+    networks:
+      - dev-network
+
+networks:
+  dev-network:
+    ipam:
+      config:
+        - subnet: 172.24.0.0/16
