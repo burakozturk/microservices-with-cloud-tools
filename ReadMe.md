@@ -1,5 +1,5 @@
 
-# Microservices with Cloud Tools 
+# Microservices with Cloud Tools - Hybrid Environment
 
 ### Technologies
 
@@ -47,7 +47,7 @@ Access to host from docker network (Linux/RedHat)
 firewall-cmd --permanent --zone=public --add-rich-rule='rule family=ipv4 source address=172.24.0.0/16 accept' 
 firewall-cmd --reload
 ```
-Or, you can add [route](http://man7.org/linux/man-pages/man8/route.8.html) definitions.
+Or, you can add [route](http://man7.org/linux/man-pages/man8/route.8.html) definition.
 
 #### Build
 ```console
