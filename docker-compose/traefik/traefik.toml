@@ -53,21 +53,14 @@ defaultEntryPoints = ["http", "https"]
 [file]
 
 [backends]
-  [backends.backend_web]
-    [backends.backend_web.servers.server1]
+  [backends.web]
+    [backends.web.servers.server]
       url = "http://web"
 
 [frontends]
-
-#  [frontends.frontend_root]
-#  backend = "backend_web"
-#    [frontends.frontend_root.routes.route_path]
-#    rule = "Path:/;"
-
-
-  [frontends.frontend_web]
-  backend = "backend_web"
-    [frontends.frontend_web.routes.route_path]
+  [frontends.web]
+  backend = "web"
+    [frontends.web.routes.route]
     rule = "PathPrefix:/web, /webx; PathPrefixStrip:/web, /webx"
 
 
