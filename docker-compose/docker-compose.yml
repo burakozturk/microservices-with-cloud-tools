@@ -15,11 +15,12 @@ services:
       - dev-network
 
   gateway:
-    image: traefik:1.7.12
+    image: traefik:1.7.12-alpine
     ports:
-      - 80:80
+      - 443:443
       - 8080:8080
     volumes:
+      - ./certificates:/certificates
       - ./traefik/traefik.toml:/etc/traefik/traefik.toml
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
@@ -32,6 +33,11 @@ services:
 
   country-service:
     image: country-service
+    networks:
+      - dev-network
+
+  web:
+    image: nginx:1.17.1-alpine
     networks:
       - dev-network
 
