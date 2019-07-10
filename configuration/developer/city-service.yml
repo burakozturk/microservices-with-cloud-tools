@@ -2,12 +2,8 @@
 server:
   port: 0
 
-spring:
-  boot:
-    admin:
-      client:
-        url: ${admin-server-url}
-
 management:
-  security:
-    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: *
