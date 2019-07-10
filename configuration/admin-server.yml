@@ -1,0 +1,6 @@
+---
+spring:
+  boot:
+    admin:
+      ui:
+        public-url: https://localhost/admin-server
