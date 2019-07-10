@@ -1,0 +1,14 @@
+---
+spring:
+  application:
+    name: admin-server
+  profiles:
+    active: docker
+  cloud:
+    config:
+      uri: http://config-server
+      fail-fast: true
+      retry:
+        initial-interval: 3000
+        max-interval: 5000
+        max-attempts: 100

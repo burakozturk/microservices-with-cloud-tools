@@ -1,0 +1,14 @@
+---
+spring:
+  application:
+    name: admin-server
+  profiles:
+    active: developer
+  cloud:
+    config:
+      uri: http://localhost:8000
+      fail-fast: true
+      retry:
+        initial-interval: 3000
+        max-interval: 5000
+        max-attempts: 100
