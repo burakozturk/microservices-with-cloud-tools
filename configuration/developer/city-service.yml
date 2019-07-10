@@ -5,7 +5,8 @@ server:
 spring:
   boot:
     admin:
-      url: ${admin-server-url}
+      client:
+        url: ${admin-server-url}
 
 management:
   security:
