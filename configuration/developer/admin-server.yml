@@ -6,4 +6,4 @@ spring:
   boot:
     admin:
       ui:
-        public-url: https://localhost/admin-server
+        public-url: ${admin-server-url}
