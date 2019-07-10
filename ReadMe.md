@@ -12,6 +12,7 @@
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 - [Swagger2](https://github.com/springfox/springfox/springfox-swagger2), [Swagger-UI](https://github.com/springfox/springfox/springfox-ui) 
+- [Spring Boot Admin](http://codecentric.github.io/spring-boot-admin/current/)
 
 ### Purpose
 
@@ -65,6 +66,10 @@ cd ./docker-compose
 docker-compose up 
 docker-compose down --remove-orphans
 ```
+
+#### Spring Boot Admin
+
+[http://localhost/admin-server](http://localhost/admin-server)
 
 #### Swagger
 
