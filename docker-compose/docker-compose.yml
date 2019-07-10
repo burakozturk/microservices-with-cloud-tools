@@ -26,6 +26,11 @@ services:
     networks:
       - dev-network
 
+  admin-server:
+    image: admin-server
+    networks:
+      - dev-network
+
   city-service:
     image: city-service
     networks:
