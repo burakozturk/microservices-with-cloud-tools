@@ -32,7 +32,7 @@ To use this environment you need access privileges;
 - host network to docker network by ip
 
 ##### Windows:
-By default, host can not access containers' ip address on Windows platform.
+By default, host can not access containers' ip addresses on Windows platform.
  
 Alter route table with:
 ```console
