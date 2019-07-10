@@ -21,8 +21,8 @@ To achieve inter-service communication between host network and docker network w
 ### Scenario
 - Run some services with docker-compose
 - Run config-server and run/debug one or more services on your IDE.
-- All services automatically join consul catalog and dynamically configured on traefik.
-- Handles inter-service communication by opeinfeign & service discovery
+- All services automatically join consul catalog and are dynamically configured on traefik.
+- Handles inter-service communication via opeinfeign & service discovery
  
 
 ### Usage
@@ -32,7 +32,7 @@ To use this environment you need access privileges;
 - host network to docker network by ip
 
 ##### Windows:
-By default, host can not access containers ip address on Windows platform.
+By default, host can not access containers' ip address on Windows platform.
  
 Alter route table with:
 ```console
